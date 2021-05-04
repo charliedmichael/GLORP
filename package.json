@@ -1,6 +1,7 @@
 {
   "name": "GLORP_site",
   "version": "1.0.0",
+  "homepage": "https://charliedmichael.github.io/GLORP",
   "description": "",
   "private": true,
   "directories": {
