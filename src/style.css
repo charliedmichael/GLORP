@@ -59,7 +59,7 @@ canvas {
 }
 
 #sticker:hover #bg {
-  background-image: url('../sticker/Asset 13.png');
+  background-image: url('./images/Asset 13.png');
   border-radius: 17px;
 
 
