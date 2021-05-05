@@ -396,7 +396,7 @@ function init() {
     // scene.fog = new THREE.Fog ('black', 10, 50);
 
     // LIGHTS
-    light1 = new THREE.PointLight('#fff', 1);
+    light1 = new THREE.PointLight('#ffd', 1);
     light1.castShadow = true;
     light1.shadow.bias = -0.005; // 0.0001 creates cool lines
     light1.position.y = 16;
@@ -2270,7 +2270,7 @@ function init() {
     smileyMesh.glow = glowMesh;
     scene.add(smileyMesh);
 
-    smileyHeight = 7;
+    smileyHeight = 4;
     smileyMesh.position.set( -6.4, smileyHeight, 13.6 );
 
     // RING
