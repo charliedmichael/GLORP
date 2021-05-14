@@ -194,7 +194,8 @@ canvas {
   /* left: 2px; */
   /* bottom: var(--cartHeight); */
 
-  height: var(--cartHeight);
+  /* height: var(--cartHeight); */
+  height: auto;
 
   -moz-transform:translateY(100%);
   -webkit-transform:translateY(100%);	
@@ -212,7 +213,8 @@ canvas {
   /* left: 2px; */
   /* bottom: var(--cartHeight); */
 
-  height: var(--cartHeight);
+  /* height: var(--cartHeight); */
+  height: auto;
 
   -moz-transform:translateY(100%);
   -webkit-transform:translateY(100%);	
@@ -448,6 +450,18 @@ canvas {
   background-size:contain;
   background-repeat: no-repeat;
   background-position: center;}
+
+#pill13 {
+  display: block;
+  margin: auto;
+  /* width: var(--pillWidth); */
+  height: var(--pillHeight);
+  background-image: url('./images/marquee/marquee\ letters-13.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;}
+
+ 
 
 @-moz-keyframes marquee {
   0%   { -moz-transform: translateY( var(--marqueeOrigin) ); }
