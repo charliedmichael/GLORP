@@ -25,6 +25,9 @@ import slurp1 from './models/SLURP-1.glb';
 import soban1 from './models/soban-15.glb';
 import thesisbook1 from './models/thesisbook1-2.glb';
 import recordstack1 from './models/record stack-1.glb';
+import xorbooksStack from './models/xor books-stack-3.glb';
+import bookshelf from './models/book shelf.glb';
+
 
 import * as THREE from 'three';
 import ThreeMeshUI from 'three-mesh-ui';
@@ -137,7 +140,7 @@ let sceneOrtho, cameraOrtho;
 
 let rugMesh, couchMesh, chairMesh, speakerMesh, playerMesh, slurp1Mesh, soban1Mesh, thesisbook1Mesh;
 let smileyMesh, smileyHeight;
-let recordstack1Mesh;
+let recordstack1Mesh, xorbooksstackMesh, shelfMesh;
 
 function TextureAnimator(texture, tilesHoriz, tilesVert, numTiles, tileDispDuration) 
 {	
@@ -2113,6 +2116,56 @@ function init() {
     
     } );
 
+    // XOR BOOKS STACK
+    let xorScale = 0.45;
+    loader.load( xorbooksStack, function ( gltf ) {
+
+        xorbooksstackMesh = gltf.scene;
+        xorbooksstackMesh.traverse(function(o) {
+            if (o.isMesh) {
+                o.castShadow = true;
+                o.receiveShadow = true;
+                // o.material.envMap = cubeRenderTarget2.texture;
+                o.material.metalness = 0;
+
+            }
+            });
+        xorbooksstackMesh.scale.set( xorScale, xorScale, xorScale );
+        xorbooksstackMesh.position.set(3.5, 2.5, 15.5);
+        xorbooksstackMesh.rotation.y = Math.PI * -0.05;
+
+        scene.add( xorbooksstackMesh );
+
+        // slurp1Mesh.rotation.x = Math.PI;
+
+    
+    } );
+
+    // SHELF
+    let shelfScale = 4.0;
+    loader.load( bookshelf, function ( gltf ) {
+
+        shelfMesh = gltf.scene;
+        shelfMesh.traverse(function(o) {
+            if (o.isMesh) {
+                o.castShadow = true;
+                o.receiveShadow = true;
+                // o.material.envMap = cubeRenderTarget2.texture;
+                o.material.metalness = 0;
+
+            }
+            });
+        shelfMesh.scale.set( shelfScale, shelfScale, shelfScale );
+        shelfMesh.position.set(3, -1, 15.5);
+        shelfMesh.rotation.y = Math.PI * 0.5;
+
+        scene.add( shelfMesh );
+
+        // slurp1Mesh.rotation.x = Math.PI;
+
+    
+    } );
+
     // SOBAN
     let sobanScale = 4;
     loader.load( soban1, function ( gltf ) {
@@ -2346,7 +2399,8 @@ function init() {
     const blocker = document.getElementById( 'blocker' );
     const instructions = document.getElementById( 'instructions' );
     const intro = document.getElementById( 'intro' );
-
+    const controlsWindow = document.getElementById( 'controls' );
+    const sticker = document.getElementById( 'sticker' );
 
     instructions.addEventListener( 'click', function () {
 
@@ -2365,7 +2419,8 @@ function init() {
         instructions.style.display = 'none';
         blocker.style.display = 'none';
         intro.style.display = 'none';
-
+        controlsWindow.style.display = 'flex';
+        sticker.style.display = 'none';
 
     } );
 
@@ -2374,6 +2429,8 @@ function init() {
         blocker.style.display = 'block';
         instructions.style.display = '';
         intro.style.display = '';
+        controlsWindow.style.display = 'none';
+        sticker.style.display = '';
 
 
     } );
@@ -2774,7 +2831,7 @@ function animate() {
 
 
     // LIGHT1
-    let offsetSin = 2100; // 300, 2500
+    let offsetSin = 2100; // 300, 2500, 2100
     var lightSpeed = 0.002;
     let lightRadius = 7;
     light1.position.y = 14.5;

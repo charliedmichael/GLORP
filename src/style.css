@@ -640,3 +640,42 @@ p {
   margin-top: 0em;
   margin-bottom: 0em;
 }
+
+#controls {
+  display: none;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 300px;
+  height: 75px;
+  background-color: rgb(10, 10, 10);
+  color: white;
+  padding: 10px;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+#controlsItalic {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  /* flex-wrap: wrap; */
+  font-family: Arial;
+  font-style: italic;
+}
+
+#controlsBody {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+a:visited {
+  color:rgba(150,130,220,1);
+}
+
+a {
+  color:cornflowerblue;
+}
